@@ -1,0 +1,79 @@
+body {
+    background-color: #dfb8df;
+}
+
+h1 {
+    text-align: center;
+}
+
+#playing-cards {
+    margin: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    justify-content: space-between;
+    width: 180px;
+    height: 252px;
+    font-size: 24px;
+    padding: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: white;
+    border: 1px solid black;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 2px gray;
+    border-radius: 10px;
+}
+
+.left {
+    align-self: flex-start;
+}
+
+.middle {
+    align-self: center;
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.right {
+    align-self: flex-end;
+}
+
+.inverted {
+    transform: rotate(180deg);
+}
+
+.red {
+    color: #ff0000;
+    forced-color-adjust: none; /* force the browser to ignore when the user selects high contrastmode */
+ 
+}
+
+/* --- New Grid Layouts for 4 and 5 Cards --- */
+
+/* 4 of Diamonds Grid Configuration */
+.card-4 .middle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns wide */
+    gap: 10px;                             /* Space between pips */
+    justify-items: center;
+}
+
+/* 5 of Clubs Grid Configuration */
+.card-5 .middle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns wide */
+    gap: 10px;                             /* Space between pips */
+    justify-items: center;
+}
+
+/* For the 5 card, center the 3rd pip (middle line) across both columns */
+.card-5 .middle div:nth-child(3) {
+    grid-column: span 2; 
+}
